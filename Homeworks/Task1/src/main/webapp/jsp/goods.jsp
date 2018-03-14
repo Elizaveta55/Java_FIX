@@ -28,7 +28,7 @@
     </c:forEach>
 </table>
 
-<form action="/goods" method="post">
+<form action="/products" method="post">
     <input type="text" placeholder="Имя" name="name">
     <input type="text" placeholder="Количество" name="amount">
     <input type="submit">

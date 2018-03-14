@@ -18,7 +18,7 @@ public class GoodServlet extends HttpServlet{
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        repository = (GoodRepository)config.getServletContext().getAttribute("goodRepository");
+        this.repository = (GoodRepository)config.getServletContext().getAttribute("goodRepository");
     }
 
     @Override
@@ -43,6 +43,6 @@ public class GoodServlet extends HttpServlet{
 
         repository.save(good);
 
-        response.sendRedirect("/goods");
+        response.sendRedirect("/products");
     }
 }

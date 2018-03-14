@@ -4,6 +4,7 @@ import com.company.repositories.GoodRepository;
 import com.company.repositories.GoodRepositoryImpl;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -12,15 +13,13 @@ import javax.servlet.ServletContextListener;
 public class HibernateServletListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        ServletContext context = servletContextEvent.getServletContext();
 
-        EntityManager entityManager =
-                Persistence.createEntityManagerFactory("com.company.persistence")
-                        .createEntityManager();
+        EntityManagerFactory factory =
+                Persistence.createEntityManagerFactory("com.company.persistence");
 
-        GoodRepository repository = new GoodRepositoryImpl(entityManager);
+        GoodRepository goodRepository = new GoodRepositoryImpl(factory.createEntityManager());
 
-        context.setAttribute("goodRepository", repository);
+        servletContextEvent.getServletContext().setAttribute("goodRepository", goodRepository);
     }
 
     @Override
