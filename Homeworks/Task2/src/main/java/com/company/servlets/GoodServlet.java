@@ -1,30 +1,29 @@
 package com.company.servlets;
 
 import com.company.models.GoodModel;
+import com.company.models.User;
 import com.company.repositories.GoodRepository;
+import com.company.services.GoodService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
 public class GoodServlet extends HttpServlet{
 
 
-    private GoodRepository repository;
+    private GoodService service;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        this.repository = (GoodRepository)config.getServletContext().getAttribute("goodRepository");
+        this.service = (GoodService)config.getServletContext().getAttribute("goodService");
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<GoodModel> goods = repository.findAll();
-
+        List<GoodModel> goods = service.showAll();
         request.setAttribute("goods", goods);
 
         request.getRequestDispatcher("/jsp/goods.jsp").forward(request, response);
@@ -41,7 +40,7 @@ public class GoodServlet extends HttpServlet{
                 .amount(amount)
                 .build();
 
-        repository.save(good);
+        service.registerGood(good);
 
         response.sendRedirect("/products");
     }
