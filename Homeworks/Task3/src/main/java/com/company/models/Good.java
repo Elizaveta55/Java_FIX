@@ -12,7 +12,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @ToString
 @Builder
-public class GoodModel {
+public class Good {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
