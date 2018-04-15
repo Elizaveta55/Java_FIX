@@ -10,11 +10,11 @@ import java.util.List;
 
 public class UserRepositoryJdbcTemplateImpl implements UserRepository {
 
-    private static final String SQL_FIND_BY_ID = "SELECT * FROM usery WHERE id = ?";
-    private static final String SQL_FIND_BY_NAME = "SELECT * FROM usery WHERE name = ?";
-    private static final String SQL_FIND_ALL = "SELECT * FROM usery";
-    private static final String SQL_INSERT_USER = "INSERT INTO usery(name, password) VALUES (?, ?)";
-    private static final String SQL_UPDATE_BY_ID = "UPDATE usery" + " SET name = ?, password = ? WHERE id = ?";
+    private static final String SQL_FIND_BY_ID = "SELECT * FROM users WHERE id = ?";
+    private static final String SQL_FIND_BY_NAME = "SELECT * FROM users WHERE name = ?";
+    private static final String SQL_FIND_ALL = "SELECT * FROM users";
+    private static final String SQL_INSERT_USER = "INSERT INTO users(name, password) VALUES (?, ?)";
+    private static final String SQL_UPDATE_BY_ID = "UPDATE users" + " SET name = ?, password = ? WHERE id = ?";
     private static final String SQL_DELETE_BY_ID = "DELETE FROM humans WHERE id = ?";
 
     private JdbcTemplate template;

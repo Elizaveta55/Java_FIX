@@ -1,6 +1,7 @@
 package com.company.repositories;
 
 import com.company.models.Good;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.*;

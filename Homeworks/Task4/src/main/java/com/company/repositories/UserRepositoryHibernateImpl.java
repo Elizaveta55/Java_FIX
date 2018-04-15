@@ -2,11 +2,9 @@ package com.company.repositories;
 
 import com.company.models.User;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import javax.sql.DataSource;
 import java.util.List;
 
 public class UserRepositoryHibernateImpl implements UserRepository {
@@ -19,12 +17,17 @@ public class UserRepositoryHibernateImpl implements UserRepository {
 
     @Override
     public User findOneByName(String name) {
-        return manager.find(User.class, name);
+        TypedQuery<User> humanQuery = manager.createQuery("from User", User.class);
+        List<User> humanList = humanQuery.getResultList();
+        for (User user: humanList) {
+            if (user.getName().equals(name)) return user;
+        }
+        return null;
     }
 
     @Override
     public List<User> findAll() {
-        TypedQuery<User> humanQuery = manager.createQuery("from usery", User.class);
+        TypedQuery<User> humanQuery = manager.createQuery("from User", User.class);
         List<User> humanList = humanQuery.getResultList();
         return humanList;
     }

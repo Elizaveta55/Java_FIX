@@ -2,6 +2,8 @@ package com.company.servlets;
 
 import com.company.models.Good;
 import com.company.services.GoodService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;

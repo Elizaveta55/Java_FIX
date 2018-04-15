@@ -2,12 +2,17 @@ package com.company.services;
 
 import com.company.models.Good;
 import com.company.repositories.GoodRepositoryJDBC;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class GoodService {
 
+
     private GoodRepositoryJDBC goodRepositoryJDBC;
+
 
     public GoodService(GoodRepositoryJDBC repository) {
         this.goodRepositoryJDBC = repository;
