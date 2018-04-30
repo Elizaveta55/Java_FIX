@@ -1,0 +1,25 @@
+<html>
+<head>
+    <script language="javascript" type="text/javascript"
+            src="http://code.jquery.com/jquery-2.1.1.min.js">
+    </script>
+    <script language="javascript" type="text/javascript"
+            src="js/login.js">
+    </script>
+</head>
+<body>
+<label for="login">Login</label>
+<br>
+<input type="text" id="login" name="login">
+<br>
+<label for="password">Password</label>
+<br>
+<input type="password" id="password" name="password">
+<br>
+<button id="submit" onclick="login(
+        document.getElementById('login').value,
+        document.getElementById('password').value)">LogIn
+</button>
+
+</body>
+</html>
